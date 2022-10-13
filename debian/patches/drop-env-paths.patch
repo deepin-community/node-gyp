@@ -1,0 +1,23 @@
+Description: drop unavailable env-paths module, easy to patch out
+Author: Jérémy Lal <kapouer@melix.org>
+Last-Update: 2019-10-21
+Forwarded: not-needed
+--- a/bin/node-gyp.js
++++ b/bin/node-gyp.js
+@@ -4,7 +4,6 @@
+ 
+ process.title = 'node-gyp'
+ 
+-const envPaths = require('env-paths')
+ const gyp = require('../')
+ const log = require('npmlog')
+ const os = require('os')
+@@ -22,7 +21,7 @@
+ if (prog.devDir) {
+   prog.devDir = prog.devDir.replace(/^~/, homeDir)
+ } else if (homeDir) {
+-  prog.devDir = envPaths('node-gyp', { suffix: '' }).cache
++  prog.devDir = homeDir + '/.cache/node-gyp'
+ } else {
+   throw new Error(
+     "node-gyp requires that the user's home directory is specified " +

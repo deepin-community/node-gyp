@@ -1,0 +1,1 @@
+NODE_PATH=debian/tests/test_modules/ tap --timeout=800 `ls test/test-*|grep -v test/test-configure-python.js|grep -v download`

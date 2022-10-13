@@ -1,0 +1,7 @@
+2002_set_default_nodedir.patch
+2003_fPIC_ia32.patch
+kfreebsd.patch
+link_libnode.patch
+drop-env-paths.patch
+disable-test-node-renamed.patch
+render-node-request-optional.patch

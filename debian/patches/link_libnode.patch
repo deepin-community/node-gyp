@@ -1,0 +1,18 @@
+Description: Link to node shared lib on debian
+Last-Update: 2019-01-01
+Forwarded: not-needed
+Author: Jérémy Lal <kapouer@melix.org>
+--- a/addon.gypi
++++ b/addon.gypi
+@@ -180,6 +180,11 @@
+          (OS=="linux")', {
+         'cflags': [ '-fPIC' ],
+       }],
++      [ 'OS in "linux freebsd openbsd netbsd solaris"', {
++        'libraries': [
++          '-lnode'
++        ],
++      }]
+     ]
+   }
+ }

@@ -1,0 +1,19 @@
+Description: set nodejs-dev headers path for default --nodedir
+ Expected behavior: node-gyp does not install remote headers when
+ configuring a module targeted at current nodejs version.
+Forwarded: not-needed
+Author: Jérémy Lal <kapouer@melix.org>
+Last-Update: 2013-03-25
+--- a/lib/configure.js
++++ b/lib/configure.js
+@@ -48,6 +48,10 @@
+       } else {
+         // if no --target was specified then use the current host node version
+         log.verbose('get node dir', 'no --target version specified, falling back to host node version: %s', release.version)
++        // use nodejs-dev headers from debian package
++        nodeDir = "/usr/include/nodejs";
++        createBuildDir()
++        return
+       }
+ 
+       if (!release.semver) {

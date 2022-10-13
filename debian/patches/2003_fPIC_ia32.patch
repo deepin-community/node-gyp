@@ -1,0 +1,16 @@
+Description: let -fPIC be the default on all archs
+ http://lintian.debian.org/tags/shlib-with-non-pic-code.html
+Forwarded: not-needed
+Author: Jérémy Lal <kapouer@melix.org>
+Last-Update: 2014-03-03
+--- a/addon.gypi
++++ b/addon.gypi
+@@ -177,7 +177,7 @@
+         ],
+       }],
+       [ 'OS in "freebsd openbsd netbsd solaris android" or \
+-         (OS=="linux" and target_arch!="ia32")', {
++         (OS=="linux")', {
+         'cflags': [ '-fPIC' ],
+       }],
+     ]

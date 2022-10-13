@@ -1,0 +1,16 @@
+Description: disable test that assumes node_modules is local
+Author: Jérémy Lal <kapouer@melix.org>
+Forwarded: not-needed
+Last-Update: 2019-10-21
+--- a/test/test-addon.js
++++ b/test/test-addon.js
+@@ -124,6 +124,9 @@
+ })
+ 
+ test('addon works with renamed host executable', function (t) {
++  t.skip('skipping test for it does not work on debian')
++  t.end()
++  return
+   // No `fs.copyFileSync` before node8.
+   if (process.version.substr(1).split('.')[0] < 8) {
+     t.skip('skipping test for old node version')

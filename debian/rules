@@ -1,0 +1,17 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+%:
+	dh $@
+
+override_dh_fixperms:
+	dh_fixperms
+	ls -l debian/node-gyp/usr/share/nodejs/node-gyp/bin/
+	chmod +x debian/node-gyp/usr/share/nodejs/node-gyp/bin/node-gyp.js
+
+override_dh_auto_test:
+	# Tests are launched during autopkgtest only
+	# to avoid circular dependency to node-tap

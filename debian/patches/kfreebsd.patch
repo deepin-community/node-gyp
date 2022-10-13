@@ -1,0 +1,15 @@
+Description: kfreebsd is not like *bsd and have make
+Author: Jérémy Lal <kapouer@melix.org>
+Last-Update: 2015-09-22
+Forwarded: not-needed
+--- a/lib/build.js
++++ b/lib/build.js
+@@ -12,7 +12,7 @@
+   if (process.platform === 'aix') {
+     platformMake = 'gmake'
+   } else if (process.platform.indexOf('bsd') !== -1) {
+-    platformMake = 'gmake'
++    // platformMake = 'gmake'
+   } else if (win && argv.length > 0) {
+     argv = argv.map(function (target) {
+       return '/t:' + target
