@@ -1,0 +1,43 @@
+Description: use another fetch to avoid unavailable make-fetch-happen
+Author: Jérémy Lal <kapouer@melix.org>
+Forwarded: not-needed
+Last-Update: 2021-12-01
+
+--- a/lib/install.js
++++ b/lib/install.js
+@@ -9,7 +9,7 @@
+ const crypto = require('crypto')
+ const log = require('npmlog')
+ const semver = require('semver')
+-const fetch = require('make-fetch-happen')
++const fetch = require('node-fetch')
+ const processRelease = require('./process-release')
+ const win = process.platform === 'win32'
+ const streamPipeline = util.promisify(stream.pipeline)
+@@ -342,13 +342,21 @@
+       'User-Agent': `node-gyp v${gyp.version} (node ${process.version})`,
+       Connection: 'keep-alive'
+     },
+-    proxy: gyp.opts.proxy,
+-    noProxy: gyp.opts.noproxy
++  }
++  if (gyp.opts.proxy) {
++    let proxy=true
++    if (gyp.opts.noproxy) {
++      let tmp = typeof gyp.opts.noproxy == 'string' ? gyp.opts.noproxy.split(/,\s*/) : gyp.opts.noproxy
++      if (tmp.includes(url)) proxy = false;
++    }
++    if (proxy) {
++      const {HttpsProxyAgent} = require('https-proxy-agent');
++      requestOpts.agent = new HttpsProxyAgent(gyp.opts.proxy);
++    }
+   }
+ 
+-  const cafile = gyp.opts.cafile
+-  if (cafile) {
+-    requestOpts.ca = await readCAFile(cafile)
++  if (gyp.opts.cafile) {
++    console.error('cafile option not implemented here, use NODE_EXTRA_CA_CERTS variable instead');
+   }
+ 
+   const res = await fetch(url, requestOpts)

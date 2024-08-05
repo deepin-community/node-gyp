@@ -4,8 +4,8 @@ Last-Update: 2015-09-22
 Forwarded: not-needed
 --- a/lib/build.js
 +++ b/lib/build.js
-@@ -12,7 +12,7 @@
-   if (process.platform === 'aix') {
+@@ -14,7 +14,7 @@
+   } else if (process.platform === 'os400') {
      platformMake = 'gmake'
    } else if (process.platform.indexOf('bsd') !== -1) {
 -    platformMake = 'gmake'

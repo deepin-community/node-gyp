@@ -6,7 +6,7 @@ Author: Jérémy Lal <kapouer@melix.org>
 Last-Update: 2013-03-25
 --- a/lib/configure.js
 +++ b/lib/configure.js
-@@ -48,6 +48,10 @@
+@@ -50,6 +50,10 @@
        } else {
          // if no --target was specified then use the current host node version
          log.verbose('get node dir', 'no --target version specified, falling back to host node version: %s', release.version)

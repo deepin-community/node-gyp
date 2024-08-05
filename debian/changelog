@@ -1,3 +1,70 @@
+node-gyp (9.3.0-3) unstable; urgency=medium
+
+  * Team upload
+  * Update standards version to 4.6.2, no changes needed.
+  * Add fix for node-https-proxy-agent >= 7
+
+ -- Yadd <yadd@debian.org>  Thu, 23 Nov 2023 11:27:59 +0400
+
+node-gyp (9.3.0-2) unstable; urgency=medium
+
+  * Team upload
+  * Replace node-whatwg-fetch by node-fetch and update patch
+
+ -- Yadd <yadd@debian.org>  Thu, 24 Nov 2022 12:16:34 +0100
+
+node-gyp (9.3.0-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream version 9.3.0
+  * Refresh patches
+
+ -- Yadd <yadd@debian.org>  Tue, 22 Nov 2022 16:30:48 +0100
+
+node-gyp (9.2.0-1) unstable; urgency=medium
+
+  [ Jérémy Lal ]
+  * New upstream version 9.2.0
+
+  [ Yadd ]
+  * Declare compliance with policy 4.6.1
+
+ -- Jérémy Lal <kapouer@melix.org>  Tue, 04 Oct 2022 12:59:41 +0200
+
+node-gyp (9.1.0-1) unstable; urgency=medium
+
+  [ Yadd ]
+  * Set upstream metadata fields: Security-Contact.
+
+  [ Jérémy Lal ]
+  * New upstream version 9.1.0
+  * Remove false positives overrides
+
+ -- Jérémy Lal <kapouer@melix.org>  Sat, 16 Jul 2022 15:57:33 +0200
+
+node-gyp (9.0.0-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream version 9.0.0
+  * Add lintian overrides
+
+ -- Yadd <yadd@debian.org>  Wed, 02 Mar 2022 11:13:05 +0100
+
+node-gyp (8.4.1-1) unstable; urgency=medium
+
+  * Team upload
+
+  [ Jérémy Lal ]
+  * New upstream version 8.4.1
+  * Update patch to use node-fetch
+  * Depends node-fetch
+
+  [ Yadd ]
+  * Update nodejs dependency to nodejs:any
+  * autopkgtest: use autopkgtest-pkg-nodejs.conf instead of custom control
+
+ -- Yadd <yadd@debian.org>  Sun, 12 Dec 2021 18:38:21 +0100
+
 node-gyp (7.1.2-5) unstable; urgency=medium
 
   * Team upload

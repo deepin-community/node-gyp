@@ -1,1 +1,7 @@
-.pc/
+*.swp
+gyp/test
+node_modules
+test/.node-gyp
+.ncu
+.nyc_output
+package-lock.json
