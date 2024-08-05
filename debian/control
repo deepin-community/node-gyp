@@ -5,10 +5,11 @@ Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.deb
 Uploaders: Jérémy Lal <kapouer@melix.org>
 Build-Depends: debhelper-compat (= 13)
  , dh-sequence-nodejs
-Standards-Version: 4.6.0
+Standards-Version: 4.6.2
 Vcs-Browser: https://salsa.debian.org/js-team/node-gyp
 Vcs-Git: https://salsa.debian.org/js-team/node-gyp.git
 Homepage: https://github.com/nodejs/node-gyp
+Testsuite: autopkgtest-pkg-nodejs
 Rules-Requires-Root: no
 
 Package: node-gyp
@@ -18,7 +19,9 @@ Depends: ${misc:Depends}
  , libnode-dev
  , node-glob
  , node-graceful-fs
+ , node-https-proxy-agent (>= 7)
  , node-mkdirp
+ , node-fetch
  , node-nopt
  , node-npmlog
  , node-osenv
@@ -26,9 +29,8 @@ Depends: ${misc:Depends}
  , node-semver (>= 7)
  , node-tar
  , node-which
- , nodejs
+ , nodejs:any
 Recommends: build-essential
- , node-request
 Provides: node-node-gyp (= ${binary:Version})
 Description: Native addon build tool for Node.js
  node-gyp is a cross-platform command-line tool written in Node.js

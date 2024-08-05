@@ -4,7 +4,7 @@ Forwarded: not-needed
 Author: Jérémy Lal <kapouer@melix.org>
 --- a/addon.gypi
 +++ b/addon.gypi
-@@ -180,6 +180,11 @@
+@@ -199,6 +199,11 @@
           (OS=="linux")', {
          'cflags': [ '-fPIC' ],
        }],
